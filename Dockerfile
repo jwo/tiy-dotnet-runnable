@@ -6,5 +6,8 @@ WORKDIR /app
 RUN dotnet new
 RUN dotnet restore
 
+ADD build.sh /app
+RUN chmod +x build.sh
+RUN touch /tmp/code
 
-CMD "bash"
+CMD /app/build.sh
